@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import studio.square.testproject.common.Constants;
+import studio.square.testproject.common.exception.AroundHubException;
 import studio.square.testproject.data.dto.ProductDto;
 import studio.square.testproject.data.service.ProductService;
 
@@ -49,5 +51,10 @@ public class ProductController {
                 response.getProductName(), response.getProductPrice(), response.getProductStock());
 
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(response);
+    }
+
+    @PostMapping(value="/product/exception")
+    public void exceptionTest() throws AroundHubException {
+        throw new AroundHubException(Constants.ExceptionClass.PRODUCT, HttpStatus.FORBIDDEN, "접근이 금지되었습니다.");
     }
 }
