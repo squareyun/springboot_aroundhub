@@ -3,7 +3,7 @@ package studio.square.testproject.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import studio.square.testproject.dto.MemberDTO;
+import studio.square.testproject.data.dto.MemberDTO;
 
 import java.util.Map;
 

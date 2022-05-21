@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import studio.square.testproject.common.Constants;
 import studio.square.testproject.common.exception.AroundHubException;
 import studio.square.testproject.data.dto.ProductDto;
-import studio.square.testproject.data.service.ProductService;
+import studio.square.testproject.service.ProductService;
 
 import javax.validation.Valid;
 

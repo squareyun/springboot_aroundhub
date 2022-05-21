@@ -1,10 +1,10 @@
-package studio.square.testproject.data.service.impl;
+package studio.square.testproject.service.impl;
 
 import org.springframework.stereotype.Service;
 import studio.square.testproject.data.dto.ProductDto;
 import studio.square.testproject.data.entity.ProductEntity;
 import studio.square.testproject.data.handler.ProductDataHandler;
-import studio.square.testproject.data.service.ProductService;
+import studio.square.testproject.service.ProductService;
 
 @Service
 public class ProductServiceImpl implements ProductService {

@@ -1,4 +1,4 @@
-package studio.square.testproject.dto;
+package studio.square.testproject.data.dto;
 
 import lombok.Getter;
 import lombok.Setter;

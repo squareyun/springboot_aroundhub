@@ -1,4 +1,4 @@
-package studio.square.testproject.data.service;
+package studio.square.testproject.service;
 
 import studio.square.testproject.data.dto.ProductDto;
 
