@@ -1,9 +1,13 @@
 package studio.square.testproject.controller;
 
-import org.springframework.web.bind.annotation.*;
-import studio.square.testproject.data.dto.MemberDTO;
-
 import java.util.Map;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import studio.square.testproject.data.dto.MemberDTO;
 
 @RestController
 @RequestMapping("/api/v1/get-api") // 공통되는 url 경로를 넣을 때 사용된다.
@@ -32,7 +36,8 @@ public class GetController {
     }
 
     @GetMapping(value = "/request1")
-    public String getRequestParam1(@RequestParam String name, @RequestParam String email, @RequestParam String organization) {
+    public String getRequestParam1(@RequestParam String name, @RequestParam String email,
+        @RequestParam String organization) {
         return name + " " + email + " " + organization;
     }
 
@@ -46,7 +51,8 @@ public class GetController {
     }
 
     @GetMapping(value = "/request3")
-    public String getRequestParam3(MemberDTO memberDTO) { //return memberDTO.getName() + memberDTO.getEmail() + memberDTO.getOrganization(); return memberDTO.toString(); }
+    public String getRequestParam3(
+        MemberDTO memberDTO) { //return memberDTO.getName() + memberDTO.getEmail() + memberDTO.getOrganization(); return memberDTO.toString(); }
         return memberDTO.toString();
     }
 }

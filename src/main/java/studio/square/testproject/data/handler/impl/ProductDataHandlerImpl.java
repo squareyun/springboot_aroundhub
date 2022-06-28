@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import studio.square.testproject.data.dao.ProductDAO;
-import studio.square.testproject.data.dto.ProductDto;
 import studio.square.testproject.data.entity.ProductEntity;
 import studio.square.testproject.data.handler.ProductDataHandler;
 
@@ -20,9 +19,11 @@ public class ProductDataHandlerImpl implements ProductDataHandler {
     }
 
     @Override
-    public ProductEntity saveProductEntity(String productId, String productName, int productPrice, int productStock) {
+    public ProductEntity saveProductEntity(String productId, String productName, int productPrice,
+        int productStock) {
 
-        ProductEntity productEntity = new ProductEntity(productId, productName, productPrice, productStock);
+        ProductEntity productEntity = new ProductEntity(productId, productName, productPrice,
+            productStock);
 
         return productDAO.saveProduct(productEntity);
     }

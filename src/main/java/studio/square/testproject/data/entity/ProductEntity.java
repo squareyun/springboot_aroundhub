@@ -1,11 +1,14 @@
 package studio.square.testproject.data.entity;
 
-import lombok.*;
-import studio.square.testproject.data.dto.ProductDto;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import studio.square.testproject.data.dto.ProductDto;
 
 @Entity
 @Getter
@@ -25,12 +28,12 @@ public class ProductEntity {
 
     Integer productStock;
 
-    public ProductDto toDto(){
+    public ProductDto toDto() {
         return ProductDto.builder()
-                .productId(productId)
-                .productName(productName)
-                .productPrice(productPrice)
-                .productStock(productStock)
-                .build();
+            .productId(productId)
+            .productName(productName)
+            .productPrice(productPrice)
+            .productStock(productStock)
+            .build();
     }
 }

@@ -1,5 +1,6 @@
 package studio.square.testproject.service.impl;
 
+import java.net.URI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.RequestEntity;
@@ -10,8 +11,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 import studio.square.testproject.data.dto.MemberDTO;
 import studio.square.testproject.service.RestTemplateService;
 
-import java.net.URI;
-
 @Service
 public class RestTemplateServiceImpl implements RestTemplateService {
 
@@ -20,11 +19,11 @@ public class RestTemplateServiceImpl implements RestTemplateService {
     @Override
     public String getAroundHub() {
         URI uri = UriComponentsBuilder
-                .fromUriString("http://localhost:9090")
-                .path("/api/server/around-hub")
-                .encode()
-                .build()
-                .toUri();
+            .fromUriString("http://localhost:9090")
+            .path("/api/server/around-hub")
+            .encode()
+            .build()
+            .toUri();
 
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> responseEntity = restTemplate.getForEntity(uri, String.class);
@@ -38,12 +37,12 @@ public class RestTemplateServiceImpl implements RestTemplateService {
     @Override
     public String getName() {
         URI uri = UriComponentsBuilder
-                .fromUriString("http://localhost:9090")
-                .path("/api/server/name")
-                .queryParam("name", "Flature")
-                .encode()
-                .build()
-                .toUri();
+            .fromUriString("http://localhost:9090")
+            .path("/api/server/name")
+            .queryParam("name", "Flature")
+            .encode()
+            .build()
+            .toUri();
 
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> responseEntity = restTemplate.getForEntity(uri, String.class);
@@ -57,12 +56,12 @@ public class RestTemplateServiceImpl implements RestTemplateService {
     @Override
     public String getName2() {
         URI uri = UriComponentsBuilder
-                .fromUriString("http://localhost:9090")
-                .path("/api/server/path-variable/{name}")
-                .encode()
-                .build()
-                .expand("Flature") // 복수의 값을 넣어야할 경우 , 를 추가하여 구분
-                .toUri();
+            .fromUriString("http://localhost:9090")
+            .path("/api/server/path-variable/{name}")
+            .encode()
+            .build()
+            .expand("Flature") // 복수의 값을 넣어야할 경우 , 를 추가하여 구분
+            .toUri();
 
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> responseEntity = restTemplate.getForEntity(uri, String.class);
@@ -76,14 +75,14 @@ public class RestTemplateServiceImpl implements RestTemplateService {
     @Override
     public ResponseEntity<MemberDTO> postDto() {
         URI uri = UriComponentsBuilder
-                .fromUriString("http://localhost:9090")
-                .path("/api/server/member")
-                .queryParam("name", "Flature")
-                .queryParam("email", "jjj@jjj.com")
-                .queryParam("organization", "Around Hub Studio")
-                .encode()
-                .build()
-                .toUri();
+            .fromUriString("http://localhost:9090")
+            .path("/api/server/member")
+            .queryParam("name", "Flature")
+            .queryParam("email", "jjj@jjj.com")
+            .queryParam("organization", "Around Hub Studio")
+            .encode()
+            .build()
+            .toUri();
 
         MemberDTO memberDTO = new MemberDTO();
         memberDTO.setName("flature!!");
@@ -92,7 +91,7 @@ public class RestTemplateServiceImpl implements RestTemplateService {
 
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<MemberDTO> responseEntity = restTemplate.postForEntity(uri, memberDTO,
-                MemberDTO.class);
+            MemberDTO.class);
 
         LOGGER.info("status code : {}", responseEntity.getStatusCode());
         LOGGER.info("body : {}", responseEntity.getBody());
@@ -103,11 +102,11 @@ public class RestTemplateServiceImpl implements RestTemplateService {
     @Override
     public ResponseEntity<MemberDTO> addHeader() {
         URI uri = UriComponentsBuilder
-                .fromUriString("http://localhost:9090")
-                .path("/api/server/add-header")
-                .encode()
-                .build()
-                .toUri();
+            .fromUriString("http://localhost:9090")
+            .path("/api/server/add-header")
+            .encode()
+            .build()
+            .toUri();
 
         MemberDTO memberDTO = new MemberDTO();
         memberDTO.setName("flature");
@@ -115,13 +114,13 @@ public class RestTemplateServiceImpl implements RestTemplateService {
         memberDTO.setOrganization("Around Hub Studio");
 
         RequestEntity<MemberDTO> requestEntity = RequestEntity
-                .post(uri)
-                .header("around-header", "Around Hub Studio")
-                .body(memberDTO);
+            .post(uri)
+            .header("around-header", "Around Hub Studio")
+            .body(memberDTO);
 
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<MemberDTO> responseEntity = restTemplate.exchange(requestEntity,
-                MemberDTO.class);
+            MemberDTO.class);
 
         LOGGER.info("status code : {}", responseEntity.getStatusCode());
         LOGGER.info("body : {}", responseEntity.getBody());

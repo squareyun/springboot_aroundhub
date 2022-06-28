@@ -1,11 +1,14 @@
 package studio.square.testproject.data.dto;
 
-import lombok.*;
-import studio.square.testproject.data.entity.ProductEntity;
-
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import studio.square.testproject.data.entity.ProductEntity;
 
 @Data
 @NoArgsConstructor
@@ -32,10 +35,10 @@ public class ProductDto {
 
     public ProductEntity toEntity() {
         return ProductEntity.builder()
-                .productId(productId)
-                .productName(productName)
-                .productPrice(productPrice)
-                .productStock(productStock)
-                .build();
+            .productId(productId)
+            .productName(productName)
+            .productPrice(productPrice)
+            .productStock(productStock)
+            .build();
     }
 }

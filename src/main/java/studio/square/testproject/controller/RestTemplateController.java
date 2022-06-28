@@ -12,6 +12,7 @@ import studio.square.testproject.service.RestTemplateService;
 @RestController
 @RequestMapping("/api/rest-template")
 public class RestTemplateController {
+
     RestTemplateService restTemplateService;
 
     @Autowired

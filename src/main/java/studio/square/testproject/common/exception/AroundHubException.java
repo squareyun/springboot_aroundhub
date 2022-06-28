@@ -10,7 +10,8 @@ public class AroundHubException extends Exception {
     private Constants.ExceptionClass exceptionClass;
     private HttpStatus httpStatus;
 
-    public AroundHubException(Constants.ExceptionClass exceptionClass, HttpStatus httpStatus, String message) {
+    public AroundHubException(Constants.ExceptionClass exceptionClass, HttpStatus httpStatus,
+        String message) {
         super(exceptionClass.toString() + message);
         this.exceptionClass = exceptionClass;
         this.httpStatus = httpStatus;

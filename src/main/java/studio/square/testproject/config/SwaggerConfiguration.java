@@ -17,18 +17,18 @@ public class SwaggerConfiguration {
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(apiInfo())
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("studio.square.testproject"))
-                .paths(PathSelectors.any())
-                .build();
+            .apiInfo(apiInfo())
+            .select()
+            .apis(RequestHandlerSelectors.basePackage("studio.square.testproject"))
+            .paths(PathSelectors.any())
+            .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Square Studio Open API Test with Swagger")
-                .description("test description")
-                .version("1.0.0")
-                .build();
+            .title("Square Studio Open API Test with Swagger")
+            .description("test description")
+            .version("1.0.0")
+            .build();
     }
 }

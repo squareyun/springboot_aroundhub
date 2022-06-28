@@ -16,10 +16,14 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductDto saveProduct(String productId, String productName, int productPrice, int productStock) {
-        ProductEntity productEntity = productDataHandler.saveProductEntity(productId, productName, productPrice, productStock);
+    public ProductDto saveProduct(String productId, String productName, int productPrice,
+        int productStock) {
+        ProductEntity productEntity = productDataHandler.saveProductEntity(productId, productName,
+            productPrice, productStock);
 
-        ProductDto productDto = new ProductDto(productEntity.getProductId(), productEntity.getProductName(), productEntity.getProductPrice(), productEntity.getProductStock());
+        ProductDto productDto = new ProductDto(productEntity.getProductId(),
+            productEntity.getProductName(), productEntity.getProductPrice(),
+            productEntity.getProductStock());
 
         return productDto;
     }
@@ -28,7 +32,9 @@ public class ProductServiceImpl implements ProductService {
     public ProductDto getProduct(String productId) {
         ProductEntity productEntity = productDataHandler.getProductEntity(productId);
 
-        ProductDto productDto = new ProductDto(productEntity.getProductId(), productEntity.getProductName(), productEntity.getProductPrice(), productEntity.getProductStock());
+        ProductDto productDto = new ProductDto(productEntity.getProductId(),
+            productEntity.getProductName(), productEntity.getProductPrice(),
+            productEntity.getProductStock());
 
         return productDto;
     }

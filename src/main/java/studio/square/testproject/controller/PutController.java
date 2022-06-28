@@ -1,11 +1,13 @@
 package studio.square.testproject.controller;
 
+import java.util.Map;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import studio.square.testproject.data.dto.MemberDTO;
-
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/put-api")
